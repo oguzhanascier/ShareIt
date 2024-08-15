@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ShareIt.DTO;
 using ShareIt.Models;
-using ProductsAPI.DTO;
 
 namespace ShareIt.Controllers
 {
@@ -28,18 +27,17 @@ namespace ShareIt.Controllers
         }
 
         [HttpPost]
-public async Task<IActionResult> PostSharing(Sharing entity)
-{
-    _context.Sharings.Add(entity);
-    await _context.SaveChangesAsync();
+        public async Task<IActionResult> PostSharing(Sharing entity)
+        {
+            _context.Sharings.Add(entity);
+            await _context.SaveChangesAsync();
 
-    return CreatedAtAction(nameof(GetSharing), new { id = entity.SharingID }, entity);
-}
-
-
+            return CreatedAtAction(nameof(GetSharing), new { id = entity.SharingID }, entity);
+        }
 
 
-        // Sharing entity'sini ShareDTO'ya çeviren metot
+
+
         private static ShareDTO ShareToDTO(Sharing p)
         {
             return new ShareDTO
@@ -48,7 +46,7 @@ public async Task<IActionResult> PostSharing(Sharing entity)
                 Text = p.Text,
                 User = new UserDTO
                 {
-                    UserId= p.User.UserId,
+                    Id = p.User.Id,
                     UserName = p.User.UserName
                 }
             };

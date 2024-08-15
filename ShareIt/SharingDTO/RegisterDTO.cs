@@ -3,14 +3,13 @@ using ShareIt.Models;
 
 namespace ShareIt.DTO
 {
-    public class UserDTO
+    public class RegisterDTO
     {
-        public int Id { get; set; }
+        public int UserId { get; set; }
         public string FullName { get; set; } = null!;
         public string UserName { get; set; } = null!;
         public string Email { get; set; } = null!;
         public string Password { get; set; } = null!;
-        public ICollection<Sharing>? TodoItems { get; set; }
 
     }
 }

@@ -1,4 +1,3 @@
-using ProductsAPI.DTO;
 using ShareIt.Models;
 
 namespace ShareIt.DTO
